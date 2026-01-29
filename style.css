@@ -1,0 +1,693 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000000; /* fallback color */
+}
+
+a{
+    color: #ffff;
+    text-decoration: none;
+}
+.navebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-contsent 1s linear forwards;
+    animation-delay: 1.2s;
+    background-color: transparent;
+    transition: background-color 0.3s, backdrop-filter 0.3s, transform 0.4s ease;
+}
+
+/* Class to hide navbar on scroll */
+.navebar.navbar-hidden {
+    transform: translateY(-110%); /* Hides the navbar above the viewport */
+}
+
+
+@keyframes show-contsent {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.navebar .logo {
+    font-size: 30px;
+    font-weight: 500;
+}
+.navebar ul {
+    display: flex;
+}
+.navebar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+.navebar ul li a {
+    font-size: 20px;
+    font-weight: 200;
+    transition: .5s;
+}
+.navebar ul li:hover a {
+    color: rgb(150, 150, 150);
+}
+
+#menu-icon {
+    display: none; /* Hidden by default on desktop */
+    font-size: 3.6rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #ffff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-contsent 1s linear forwards;
+    animation-delay: 1.4s;
+    
+}
+.home-info h1 {
+    font-size: 55px;
+}
+.home-info h2 {
+    display: inline-block;
+    font-size: 32px;
+    margin-top: -10px;
+
+}
+.home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px  rgb(255, 255, 255);
+    animation: disply-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes disply-text {
+    25%,
+    100% {
+        display: none;
+    }
+}
+.gradient-text {
+    background: linear-gradient(90deg, #ff6a00 0% , #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.home-info h2 span::before {
+    content: attr(gradient-text);
+    position: absolute;
+    width: 0%;
+    border-right: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+    10%,
+    100% {
+        width: 0;
+    } 
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+.home-info p {
+    font-size: 16px;
+    margin: 10px 1 25px;
+}
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 40px; 
+    box-shadow:  0 0 10px rgb(255, 255, 255);
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    transition: .5s;
+    margin-top: 20px;
+}
+.btn:hover {
+    background: transparent;
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+}
+.home .home-info .btn-sci .sci {
+    margin-left: 25px;
+    margin-top: 20px;
+}
+.home .home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin: 0 8px;
+    transition: .5s;
+}
+.home .home-info .btn-sci .sci a:hover {
+    background: rgb(255, 255, 255);
+    color: #131820;
+    box-shadow: 0 0 1;   
+}
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    margin-left: 25px;
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent, rgb(255, 255, 255));
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #131820;
+    border-radius: 50%;
+    border: .1px solid #131820;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow:hidden
+}
+.home-img .img-box .img-item img {
+    position: absolute;
+    display: block;
+    height: auto;
+    width: 105%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+/* About Section Styles */
+.about {
+    padding: 100px 9% 60px; /* Adds spacing around the section */
+}
+
+.heading {
+  font-size: 4.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #fff;
+}
+.heading span {
+  color: #ffffff;
+}
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.service-container .box {
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: .1rem solid transparent;
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.service-container .box:hover {
+    border-color: #ffffff;
+    transform: translateY(-10px);
+}
+
+.service-container .box .icon {
+    font-size: 4.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.service-container .box h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.service-container .box p {
+    color: #ccc;
+}
+
+
+/* RESPONSIVE STYLES */
+
+/* Tablet devices */
+@media (max-width: 1024px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 80px 5% 40px;
+  }
+
+  .home-info h1 {
+    font-size: 40px;
+  }
+
+  .home-info h2 {
+    font-size: 24px;
+  }
+
+  .home-info p {
+    font-size: 14px;
+  }
+
+  .home-img .img-box {
+    width: 45vw;
+    height: 45vw;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .navebar {
+    padding: 15px 5%; /* Adjust padding for mobile */
+  }
+
+  #menu-icon {
+    display: block;
+    font-size: 2.2rem; /* Adjusted size for better visual alignment */
+    transition: all .4s ease;
+  }
+  
+  #menu-icon.bx-x {
+      transform: rotate(180deg);
+  }
+
+  .navebar ul {
+    position: absolute;
+    top: 100%;
+    right: -100%; /* Start off-screen */
+    width: 25rem;
+    height: 100vh;
+    padding: 2rem 3%;
+    background: rgba(12, 16, 26, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: all .5s ease;
+  }
+
+  .navebar ul.active {
+    right: 0; /* Slide in */
+  }
+  
+  .home-info h1 {
+    font-size: 32px;
+  }
+
+  .home-info h2 {
+    font-size: 20px;
+  }
+
+  .home-info p {
+    font-size: 13px;
+  }
+
+  .home-img .img-box {
+    width: 65vw;
+    height: 65vw;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .home-info .btn-sci {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-info .btn-sci .sci {
+    margin-left: 0;
+  }
+
+  .home-info h1 {
+    font-size: 28px;
+  }
+}
+
+/* General styling for the section wrappers */
+.edu,
+.about {
+    padding: 100px 9% 60px;
+}
+
+/* Styles for the container holding the boxes */
+.education-container,
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; /* This creates the space between boxes */
+}
+
+/* Styles for the individual boxes */
+.education-container .box,
+.service-container .box {
+  padding: 3rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: .1rem solid transparent;
+  border-radius: 1rem;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+/* Hover effect for the boxes */
+.education-container .box:hover,
+.service-container .box:hover {
+    border-color: #ffffff;
+    transform: translateY(-10px);
+}
+
+/* Styles for the icon inside each box */
+.education-container .box .icon,
+.service-container .box .icon {
+    font-size: 4.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Styles for the heading inside each box */
+.education-container .box h3,
+.service-container .box h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+/* Styles for the paragraph text inside each box */
+.education-container .box p,
+.service-container .box p {
+    color: #ccc;
+}
+
+/*.contact-container {
+display: grid;
+grid-template-columns: 1fr 1.3fr;
+gap: 3rem;
+}
+.contact-container .contact-box:first-child{
+  align-self: center;
+}
+
+.contact-box h2 {
+  font-size: 4.5rem;
+}
+.contact-box p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.contact-box .description {
+   margin: 1.5rem 0 2.5rem;
+}
+.education-container h2 {
+  font-size: 4.5rem;
+  color: #fff;
+} */
+
+/*=============================================
+=            Contact Form Styles            =
+=============================================*/
+.contact {
+    padding: 100px 9% 60px;
+}
+
+.contact-form-container {
+    max-width: 70rem; /* Sets a max width for the form */
+    margin: 4rem auto 0; /* Centers the form and adds space above it */
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05); /* Same background as other boxes */
+    border-radius: 1rem;
+}
+
+.contact-form-container .field-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates a two-column layout for inputs */
+    gap: 1.5rem; /* Space between fields */
+}
+
+.contact-form-container .field-box input,
+.contact-form-container .field-box textarea {
+    width: 100%;
+    padding: 1.2rem;
+    background: transparent;
+    border: .1rem solid #fff;
+    border-radius: .6rem;
+    font-size: 1rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.contact-form-container .field-box input::placeholder,
+.contact-form-container .field-box textarea::placeholder {
+    color: #ccc;
+}
+
+.contact-form-container .field-box input:focus,
+.contact-form-container .field-box textarea:focus {
+    outline: none;
+    border-color: #ffffff; 
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.contact-form-container .field-box textarea {
+    grid-column: 1 / -1; 
+    height: 15rem; 
+    resize: none; 
+}
+
+.contact-form-container .btn {
+    display: block; /* Makes the button a block element */
+    width: fit-content; /* Button width adjusts to its content */
+    margin: 2rem auto 0; /* Centers the button with space above */
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .contact-form-container .field-box {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/*footer section*/
+.footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 2rem 9%;
+    background: rgba(255, 255, 255, 0.05); 
+}
+
+.footer-text p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.footer-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    background: transparent;
+    border: 0.1rem solid #ffffff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0 0.5rem;
+    transition: 0.4s ease;
+}
+
+.footer-icons a:hover {
+    background: #ffffff;
+    color: #000;
+    box-shadow: 0 0 1rem #ffffff;
+}
+
+.footer-icon-top a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-radius: 0.8rem;
+    transition: 0.4s ease;
+}
+
+.footer-icon-top a:hover {
+    box-shadow: 0 0 1rem #ffffff;
+}
+
+.footer-icon-top a i {
+    font-size: 1.8rem;
+    color: #000;
+}
+
+/* --- Responsive adjustments for the footer --- */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column-reverse; /* Stack items vertically, with copyright at bottom */
+        gap: 1.5rem; /* Add space between stacked items */
+        text-align: center;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* This is your existing rule, which is perfect */
+.footer-icon-top a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-radius: 0.8rem;
+    transition: 0.4s ease; /* This line makes the hover effect smooth */
+}
+
+/* Add the transform property to the hover rule */
+.footer-icon-top a:hover {
+    box-shadow: 0 0 1rem #ffffff;
+    transform: translateY(-5px); /* This makes the button lift up by 5 pixels */
+}
+/* Add this new block */
+.navebar ul li a.active-link,
+.navebar ul li a:hover {
+    color: #bdbdbd; /* Use an accent color */
+}
+.contact-form-container .field-box input:focus,
+.contact-form-container .field-box textarea:focus {
+    outline: none;
+    border-color: #ffffff; /* Highlight color on focus */
+    box-shadow: 0 0 10px #ffffff;
+}
+.contact-form-container .field-box input:focus,
+.contact-form-container .field-box textarea:focus {
+    outline: none;
+    border-color: #ffffff; /* Changed to accent color */
+    box-shadow: 0 0 10px #ffffff; /* Changed to accent color */
+}
+.footer-icons a {
+    /* ... other styles ... */
+    border: 0.1rem solid #ffffff;
+    color: #ffffff;
+    /* ... other styles ... */
+}
+
+.footer-icons a:hover {
+    background: #ffffff;
+    color: #000;
+    box-shadow: 0 0 1rem #ffffff;
+}
+.footer-icons a {
+    /* ... other styles ... */
+    border: 0.1rem solid #ffffff; /* Changed to accent color */
+    color: #ffffff; /* Changed to accent color */
+    /* ... other styles ... */
+}
+
+.footer-icons a:hover {
+    background: #ffffff; /* Changed to accent color */
+    color: #000;
+    box-shadow: 0 0 1rem #ffffff; /* Changed to accent color */
+}
+.footer-icon-top a {
+    /* ... other styles ... */
+    background: #ffffff;
+    /* ... other styles ... */
+}
+
+.footer-icon-top a:hover {
+    box-shadow: 0 0 1rem #ffffff;
+    transform: translateY(-5px); 
+}
+.footer-icon-top a {
+    /* ... other styles ... */
+    background: #ffffff; /* Changed to accent color */
+    /* ... other styles ... */
+}
+
+.footer-icon-top a:hover {
+    box-shadow: 0 0 1rem #ffffff; /* Changed to accent color */
+    transform: translateY(-5px);
+}
+.heading { 
+  font-size: 3.5rem; 
+}
+.heading { 
+  font-size: 3rem;
+ }
+ /* Add the transform property to the hover rule */
+.footer-icon-top a:hover {
+    box-shadow: 0 0 1rem #ffffff;
+    transform: translateY(-5px); /* This makes the button lift up by 5 pixels */
+}
